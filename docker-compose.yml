@@ -12,7 +12,9 @@ services:
         volumes:
             - ./:/var/www/proactivity-task
     fpm:
-        image: php:7.1-fpm
+        build:
+            context: .
+            dockerfile: docker/Fpm.Dockerfile
         volumes:
             - ./:/var/www/proactivity-task
         links:
