@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: docker/Nginx.Dockerfile
+        ports:
+            - 8094:80
+        links:
+            - fpm
+        volumes:
+            - ./:/var/www/proactivity-task
+    fpm:
+        image: php:7.1-fpm
+        volumes:
+            - ./:/var/www/proactivity-task
+        links:
+            - mysql
+    mysql:
+        image: mysql:5.7
+        ports:
+            - 33061:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=proactivitytask
+
