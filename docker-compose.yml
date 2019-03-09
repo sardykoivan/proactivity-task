@@ -19,6 +19,7 @@ services:
             - ./:/var/www/proactivity-task
         links:
             - mysql
+        working_dir: /var/www/proactivity-task
     mysql:
         image: mysql:5.7
         ports:
