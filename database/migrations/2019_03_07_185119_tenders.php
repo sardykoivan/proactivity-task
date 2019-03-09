@@ -16,20 +16,20 @@ class Tenders extends Migration
         Schema::create('tenders', function (Blueprint $table) {
             //$table->bigIncrements('id');
             $table->increments('id');
-            $table->string('name');
-            $table->date('date_publication');
-            $table->date('date_expire');
-            $table->date('date_totals');
-            $table->string('link_details');
-            $table->unsignedInteger('owner_id');
+            $table->string('name', 2000)->nullable(true);
+            $table->date('date_publication')->nullable(true);
+            $table->date('date_expire')->nullable(true);
+            $table->date('date_totals')->nullable(true);
+            $table->string('link_details')->nullable(true);
+            $table->unsignedInteger('owner_id')->nullable(true);
         });
 
-        Schema::table('tenders', function($table) {
-            $table->foreign('owner_id')
-                ->references('id')
-                ->on('owners')
-            ;
-        });
+//        Schema::table('tenders', function($table) {
+//            $table->foreign('owner_id')
+//                ->references('id')
+//                ->on('owners')
+//            ;
+//        });
     }
 
     /**

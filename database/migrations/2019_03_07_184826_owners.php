@@ -15,21 +15,22 @@ class Owners extends Migration
     {
         Schema::create('owners', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('notification_number');
-            $table->string('short_title');
-            $table->date('date_publication');
-            $table->date('date_expire');
-            $table->date('date_totals');
-            $table->string('title');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('contact_person');
-            $table->string('subject');
-            $table->string('supply_place');
-            $table->string('start_price');
-            $table->string('currency');
-            $table->date('date_consideration');
-            $table->string('consideration_place');
+            $table->integer('notification_number')->nullable(true);
+            $table->string('short_title')->nullable(true);
+            $table->date('date_publication')->nullable(true);
+            $table->date('date_expire')->nullable(true);
+            $table->date('date_totals')->nullable(true);
+            $table->string('title')->nullable(true);
+            $table->string('phone')->nullable(true);
+            $table->string('email')->nullable(true);
+            $table->string('address')->nullable(true);
+            $table->string('contact_person')->nullable(true);
+            $table->string('subject', 1000)->nullable(true);
+            $table->string('supply_place')->nullable(true);
+            $table->string('start_price')->nullable(true);
+            $table->string('currency')->nullable(true);
+            $table->date('date_consideration')->nullable(true);
+            $table->string('consideration_place')->nullable(true);
         });
     }
 
